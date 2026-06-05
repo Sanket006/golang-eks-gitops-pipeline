@@ -1,4 +1,4 @@
-// Trigger auto CI run
+// Main application entry point
 package main
 
 import (
