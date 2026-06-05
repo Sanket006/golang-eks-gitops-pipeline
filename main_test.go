@@ -1,4 +1,4 @@
-// Test the main function - auto trigger test
+// Test the main function
 
 package main
 
