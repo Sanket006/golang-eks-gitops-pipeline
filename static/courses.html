@@ -1,92 +1,353 @@
-<DocType html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all DevOps, AWS, Azure, Terraform, Python, Ansible, and GitOps Zero to Hero courses by Abhishek Veeramalla — completely free.">
+    <title>Courses | DevOps Zero to Hero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<html>
-    <head>
-        <title>Learn DevOps from Basics</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d27;
+            --bg-card: #1e2130;
+            --accent: #6c63ff;
+            --accent-hover: #847ef0;
+            --text-primary: #e8eaf0;
+            --text-secondary: #9ca3af;
+            --border: #2a2d3e;
+            --nav-height: 64px;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Navigation ── */
+        header {
+            background-color: rgba(15, 17, 23, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-primary);
+            background-color: var(--bg-card);
+        }
+
+        /* ── Main ── */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 64px 24px 100px;
+        }
+
+        /* ── Page Header ── */
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 680px;
+        }
+
+        .page-header p + p {
+            margin-top: 10px;
+        }
+
+        /* ── Section Label ── */
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        /* ── Course Cards Grid ── */
+        .course-group {
+            margin-bottom: 48px;
+        }
+
+        .course-group h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .course-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .course-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(108, 99, 255, 0.15);
+        }
+
+        .course-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .course-info h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .course-info span {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 18px 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 480px) {
+            .course-grid {
+                grid-template-columns: 1fr;
             }
+        }
+    </style>
+</head>
+<body>
 
-            header {
-                background-color: #333;
-                color: #fff;
-                padding: 10px 0;
-                text-align: center;
-            }
+    <header>
+        <nav>
+            <a href="home" class="nav-brand" id="nav-brand">DevOps Zero to Hero</a>
+            <ul>
+                <li><a href="home" id="nav-home">Home</a></li>
+                <li><a href="about" id="nav-about">About</a></li>
+                <li><a href="contact" id="nav-contact">Contact</a></li>
+                <li><a href="courses" id="nav-courses" class="active">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-            }
+    <main>
 
-            nav ul li {
-                display: inline;
-                margin-right: 10px;
-            }
+        <!-- Page Header -->
+        <div class="page-header" id="courses-header">
+            <h1>Learn DevOps from Basics</h1>
+            <p>DevOps is a set of practices that combines software development (Dev) and IT operations (Ops)</p>
+            <p>It aims to shorten the systems development life cycle and provide continuous delivery with high software quality. DevOps is complementary with Agile software development; several DevOps aspects came from Agile methodology</p>
+        </div>
 
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
+        <!-- Main Tutorials -->
+        <section class="course-group" id="main-tutorials">
+            <p class="section-label">Core Learning Paths</p>
+            <h2>Main Tutorials</h2>
+            <div class="course-grid">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa"
+                   id="course-devops"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">⚙️</div>
+                    <div class="course-info">
+                        <h3>DevOps Zero to Hero</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze"
+                   id="course-aws"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">☁️</div>
+                    <div class="course-info">
+                        <h3>AWS Zero to Hero</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR"
+                   id="course-azure"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">🔷</div>
+                    <div class="course-info">
+                        <h3>Azure Zero to Hero</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvI0O4PeKVV1-yJoX2AqIWuf"
+                   id="course-terraform"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">🏗️</div>
+                    <div class="course-info">
+                        <h3>Terraform Zero to Hero</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKwTyYNJCUwGPvql0TrsPgv"
+                   id="course-python"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">🐍</div>
+                    <div class="course-info">
+                        <h3>Python Zero to Hero</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-            main {
-                padding: 20px;
-            }
+        <!-- Additional Tutorials -->
+        <section class="course-group" id="additional-tutorials">
+            <p class="section-label">Expand Your Skills</p>
+            <h2>Additional Tutorials</h2>
+            <div class="course-grid">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKv4MFW35XRskZbQbrt6ep-"
+                   id="course-networking"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">🌐</div>
+                    <div class="course-info">
+                        <h3>Networking Fundamentals</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLxd5nmtmORCmhD5jkrNbuE"
+                   id="course-ansible"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">🤖</div>
+                    <div class="course-info">
+                        <h3>Ansible Zero to Hero</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKu7OZpgj1-MzJFqZ8RBp6f"
+                   id="course-gitops"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">🔄</div>
+                    <div class="course-info">
+                        <h3>GitOps Zero to Hero</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-            section {
-                margin-bottom: 20px;
-            }
+        <!-- Troubleshooting Tutorials -->
+        <section class="course-group" id="troubleshooting-tutorials">
+            <p class="section-label">Level Up</p>
+            <h2>Troubleshooting Tutorials</h2>
+            <div class="course-grid">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIrFBI1farpLS_OSUBXJMLX"
+                   id="course-k8s-troubleshoot"
+                   class="course-card"
+                   target="_blank" rel="noopener noreferrer">
+                    <div class="course-icon">🔍</div>
+                    <div class="course-info">
+                        <h3>Troubleshooting Kubernetes</h3>
+                        <span>Full Course Playlist →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-            footer {
-                background-color: #333;
-                color: #fff;
-                text-align: center;
-                padding: 10px 0;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="courses">Courses</a></li>
-                </ul>
-            </nav>
-        </header>
+    </main>
 
-        <main>
-            <section>
-                <h1>Learn DevOps from Basics</h1>
-                <p>DevOps is a set of practices that combines software development (Dev) and IT operations (Ops)</p>
-                <p>It aims to shorten the systems development life cycle and provide continuous delivery with high software quality. DevOps is complementary with Agile software development; several DevOps aspects came from Agile methodology</p>    
+    <footer>
+        <p>&copy; Abhishek.Veeramalla &mdash; All rights reserved.</p>
+    </footer>
 
-                <h2>Main Tutorials</h2>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa">DevOps Zero to Hero</a></p>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze">AWS Zero to Hero</a></p>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR">Azure Zero to Hero</a></p>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvI0O4PeKVV1-yJoX2AqIWuf">Terraform Zero to Hero</a></p>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKwTyYNJCUwGPvql0TrsPgv">Python Zero to Hero</a></p>
-
-                <h2>Additional Tutorials</h2>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKv4MFW35XRskZbQbrt6ep-">Networking Fundamentals</a></p>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLxd5nmtmORCmhD5jkrNbuE">Ansible Zero to Hero</a></p>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKu7OZpgj1-MzJFqZ8RBp6f">GitOps Zero to Hero</a></p>
-
-                <h2>Troubleshooting Tutorials</h2>
-                <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIrFBI1farpLS_OSUBXJMLX">Troubleshooting Kubernetes</a></p>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; Abhishek.Veeramalla</p>
-        </footer>
-    </body>
+</body>
 </html>

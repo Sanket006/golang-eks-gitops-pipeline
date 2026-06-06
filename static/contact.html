@@ -1,68 +1,216 @@
-<Doctype html>
-<html>
-    <head>
-        <title>Contact</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact DevOps Zero to Hero — join the exclusive Slack community for members and get your doubts resolved.">
+    <title>Contact | DevOps Zero to Hero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-            header {
-                background-color: #333;
-                color: #fff;
-                padding: 10px 0;
-                text-align: center;
-            }
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d27;
+            --bg-card: #1e2130;
+            --accent: #6c63ff;
+            --accent-hover: #847ef0;
+            --text-primary: #e8eaf0;
+            --text-secondary: #9ca3af;
+            --border: #2a2d3e;
+            --nav-height: 64px;
+        }
 
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-            }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-            nav ul li {
-                display: inline;
-                margin-right: 10px;
-            }
+        /* ── Navigation ── */
+        header {
+            background-color: rgba(15, 17, 23, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
 
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
+        nav {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-            main {
-                padding: 20px;
-            }
+        .nav-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
 
-            section {
-                margin-bottom: 20px;
-            }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
 
-            footer {
-                background-color: #333;
-                color: #fff;
-                text-align: center;
-                padding: 10px 0;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="courses">Courses</a></li>
-                </ul>
-            </nav>
-        </header>
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
 
-        <main>
-            <section>
-                <h1>Contact Us</h1>
-                <p>For any doubts while learning, Join our Members only exclusive slack channel</p>
-                <a href="https://www.youtube.com/abhishekVeeramalla/join">Join Slack</a>
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-primary);
+            background-color: var(--bg-card);
+        }
+
+        /* ── Main ── */
+        main {
+            flex: 1;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 80px 24px 100px;
+        }
+
+        /* ── Contact Card ── */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h1 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 32px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .join-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(108, 99, 255, 0.35);
+        }
+
+        .join-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(108, 99, 255, 0.45);
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 36px 0;
+        }
+
+        .contact-note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── Footer ── */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 18px 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="home" class="nav-brand" id="nav-brand">DevOps Zero to Hero</a>
+            <ul>
+                <li><a href="home" id="nav-home">Home</a></li>
+                <li><a href="about" id="nav-about">About</a></li>
+                <li><a href="contact" id="nav-contact" class="active">Contact</a></li>
+                <li><a href="courses" id="nav-courses">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-card" id="contact-section">
+            <div class="contact-icon">💬</div>
+            <h1>Contact Us</h1>
+            <p>
+                For any doubts while learning, Join our Members only exclusive slack channel
+            </p>
+            <a href="https://www.youtube.com/abhishekVeeramalla/join"
+               id="join-slack-btn"
+               class="join-btn"
+               target="_blank"
+               rel="noopener noreferrer">
+                Join Slack Community →
+            </a>
+            <hr class="divider">
+            <p class="contact-note">
+                Members get access to an exclusive Slack workspace where you can ask questions,
+                share learnings, and connect with fellow DevOps enthusiasts.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Abhishek.Veeramalla &mdash; All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

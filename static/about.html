@@ -1,90 +1,309 @@
-<Docktype html>
-<html>
-    <head>
-        <title>About</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Abhishek Veeramalla — open-source enthusiast, Red Hat GitOps product lead, and DevOps educator.">
+    <title>About | DevOps Zero to Hero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-            header {
-                background-color: #333;
-                color: #fff;
-                padding: 10px 0;
-                text-align: center;
-            }
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d27;
+            --bg-card: #1e2130;
+            --accent: #6c63ff;
+            --accent-hover: #847ef0;
+            --text-primary: #e8eaf0;
+            --text-secondary: #9ca3af;
+            --border: #2a2d3e;
+            --nav-height: 64px;
+        }
 
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-            }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-            nav ul li {
-                display: inline;
-                margin-right: 10px;
-            }
+        /* ── Navigation ── */
+        header {
+            background-color: rgba(15, 17, 23, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
 
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
+        nav {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-            main {
-                padding: 20px;
-            }
+        .nav-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
 
-            section {
-                margin-bottom: 20px;
-            }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
 
-            footer {
-                background-color: #333;
-                color: #fff;
-                text-align: center;
-                padding: 10px 0;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="courses">Courses</a></li>
-                </ul>
-            </nav>
-        </header>
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
 
-        <main>
-            <section>
-                <h1>About the Author</h1>
-                <p>Hi Everyone, My name is Abhishek and welcome to my channel :)</p>
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-primary);
+            background-color: var(--bg-card);
+        }
 
-                    <p>    I am an opensource enthusiast and a great believer in sharing knowledge. </p>
-                        <p>  I have my footprints in popular opensource projects like Argo CD, Argo CD Operator, Argo Rollouts Manager, GitOps Operator, F5 Ingress Controller, Nginx Ingress Controller by Nginx and others. </p>
-                    
-                            <p> Apart from working with Red Hat as a GitOps product lead, I also hold below positions in OpenSource communities</p>
-                                <p>  - Maintainer of Argo CD Operator</p>
-                                    <p> - Creator of Argo Rollouts Manager</p>
-                                        <p> - Maintainer of RedHat Developer (GitOps operator)</p>
-                                            <p> - Member of Argo Project</p>
-                                                <p> - Member of Argo SIG Security</p>
-                    
-                                                    <p> If you want to learn complete devops for free with practical projects, checkout the playlist</p>
-                                                        <p><a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa"> Playlists</a></p>
-                    
-                                                            <p> Please subscribe to the channel to keep learning and growing together. Thanks :)</p>
-            </section>
-        </main>
+        /* ── Main ── */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 64px 24px 100px;
+        }
 
-        <footer>
-            <p>&copy; Abhishek.Veeramalla</p>
-        </footer>
-    </body>
+        /* ── Page Header ── */
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+        }
+
+        /* ── Bio Card ── */
+        .bio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px;
+            margin-bottom: 32px;
+        }
+
+        .bio-card p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 0.975rem;
+        }
+
+        .bio-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Roles List ── */
+        .roles-section {
+            margin-bottom: 36px;
+        }
+
+        .roles-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .roles-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .roles-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .roles-list li:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .roles-list li::before {
+            content: "✦";
+            color: var(--accent);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        /* ── CTA Section ── */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.15), rgba(108, 99, 255, 0.05));
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(108, 99, 255, 0.35);
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(108, 99, 255, 0.45);
+        }
+
+        /* ── Footer ── */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 18px 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="home" class="nav-brand" id="nav-brand">DevOps Zero to Hero</a>
+            <ul>
+                <li><a href="home" id="nav-home">Home</a></li>
+                <li><a href="about" id="nav-about" class="active">About</a></li>
+                <li><a href="contact" id="nav-contact">Contact</a></li>
+                <li><a href="courses" id="nav-courses">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page Header -->
+        <div class="page-header" id="page-header">
+            <h1>About the Author</h1>
+            <p>Hi Everyone, My name is Abhishek and welcome to my channel :)</p>
+        </div>
+
+        <!-- Bio Card -->
+        <div class="bio-card" id="bio-card">
+            <p>
+                I am an opensource enthusiast and a great believer in sharing knowledge.
+            </p>
+            <p>
+                I have my footprints in popular opensource projects like Argo CD, Argo CD Operator,
+                Argo Rollouts Manager, GitOps Operator, F5 Ingress Controller, Nginx Ingress Controller
+                by Nginx and others.
+            </p>
+            <p>
+                Apart from working with Red Hat as a GitOps product lead, I also hold the following
+                positions in OpenSource communities:
+            </p>
+        </div>
+
+        <!-- Open Source Roles -->
+        <section class="roles-section" id="roles-section">
+            <h2>Open Source Roles &amp; Contributions</h2>
+            <ul class="roles-list">
+                <li id="role-argocd-operator">Maintainer of Argo CD Operator</li>
+                <li id="role-rollouts">Creator of Argo Rollouts Manager</li>
+                <li id="role-gitops-operator">Maintainer of RedHat Developer (GitOps operator)</li>
+                <li id="role-argo-member">Member of Argo Project</li>
+                <li id="role-argo-security">Member of Argo SIG Security</li>
+            </ul>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section" id="cta-section">
+            <h2>Want to learn complete DevOps for free?</h2>
+            <p>
+                If you want to learn complete devops for free with practical projects, checkout the playlist.
+                Please subscribe to the channel to keep learning and growing together. Thanks :)
+            </p>
+            <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa"
+               id="playlist-link"
+               class="cta-btn"
+               target="_blank"
+               rel="noopener noreferrer">
+                View Playlists →
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; Abhishek.Veeramalla &mdash; All rights reserved.</p>
+    </footer>
+
+</body>
 </html>

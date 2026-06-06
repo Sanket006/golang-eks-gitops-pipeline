@@ -4,88 +4,370 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta name="description" content="Learn DevOps from basics for free. Zero to Hero courses on DevOps tools and popular cloud platforms like AWS and Azure.">
+    <title>Home | DevOps Zero to Hero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d27;
+            --bg-card: #1e2130;
+            --accent: #6c63ff;
+            --accent-hover: #847ef0;
+            --text-primary: #e8eaf0;
+            --text-secondary: #9ca3af;
+            --border: #2a2d3e;
+            --nav-height: 64px;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Navigation ── */
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+            background-color: rgba(15, 17, 23, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
         }
 
         nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
+            list-style: none;
+            display: flex;
+            gap: 8px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: var(--text-secondary);
             text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
         }
 
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-primary);
+            background-color: var(--bg-card);
+        }
+
+        /* ── Main ── */
         main {
-            padding: 20px;
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 24px 100px;
         }
 
-        section {
+        /* ── Hero Section ── */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            background: linear-gradient(135deg, #e8eaf0 30%, #6c63ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 36px;
         }
-    </style>    
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(108, 99, 255, 0.35);
+        }
+
+        .hero-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(108, 99, 255, 0.45);
+        }
+
+        /* ── Section Divider ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 48px 0;
+        }
+
+        /* ── Overview Section ── */
+        .overview {
+            padding: 8px 0 32px;
+        }
+
+        .overview h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .overview p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 680px;
+        }
+
+        /* ── Feature Cards ── */
+        .cards-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(108, 99, 255, 0.15);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Courses CTA ── */
+        .courses-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .courses-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .courses-section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .courses-link {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent);
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .courses-link:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 18px 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .courses-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <nav>
+            <a href="home" class="nav-brand" id="nav-brand">DevOps Zero to Hero</a>
             <ul>
-                <li><a href="home">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact">Contact</a></li>
-                <li><a href="courses">Courses</a></li>
+                <li><a href="home" id="nav-home" class="active">Home</a></li>
+                <li><a href="about" id="nav-about">About</a></li>
+                <li><a href="contact" id="nav-contact">Contact</a></li>
+                <li><a href="courses" id="nav-courses">Courses</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero-section">
+            <span class="hero-badge">100% Free Learning</span>
             <h1>Learn DevOps from Basics</h1>
-            <p>The main purpose of this website is to guide people on how to learn DevOps 
+            <p>
+                The main purpose of this website is to guide people on how to learn DevOps
                 from basics for Free. We will provide you with the best resources to learn.
             </p>
+            <a href="courses" class="hero-cta" id="hero-cta-btn">Browse Courses →</a>
         </section>
 
-        <section>
+        <hr class="section-divider">
+
+        <!-- Overview Section -->
+        <section class="overview" id="overview-section">
             <h2>Overview</h2>
-            <p> Zero to Hero courses on all DevOps tools and popular Cloud(AWS and Azure) platform</p>
+            <p>Zero to Hero courses on all DevOps tools and popular Cloud (AWS and Azure) platforms</p>
         </section>
 
-        <section>
-            <h2>Courses Offered</h2>
-            <p>Please look at the <a href="courses">courses</a> section.</p>  
+        <!-- Feature Highlight Cards -->
+        <div class="cards-grid" id="features-grid">
+            <div class="card" id="card-devops">
+                <div class="card-icon">⚙️</div>
+                <h3>DevOps Fundamentals</h3>
+                <p>Master CI/CD, Docker, Kubernetes, and everything in between — from scratch.</p>
+            </div>
+            <div class="card" id="card-aws">
+                <div class="card-icon">☁️</div>
+                <h3>AWS Zero to Hero</h3>
+                <p>Hands-on cloud training covering core AWS services and architecture patterns.</p>
+            </div>
+            <div class="card" id="card-azure">
+                <div class="card-icon">🔷</div>
+                <h3>Azure Zero to Hero</h3>
+                <p>Learn Microsoft Azure from fundamentals to production-grade deployments.</p>
+            </div>
+            <div class="card" id="card-free">
+                <div class="card-icon">🎓</div>
+                <h3>Completely Free</h3>
+                <p>All content is available for free. Learn at your own pace, no credit card needed.</p>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Courses Offered Section -->
+        <section class="courses-section" id="courses-section">
+            <div>
+                <h2>Courses Offered</h2>
+                <p>Please look at the <a href="courses" style="color: var(--accent);">courses</a> section to explore all available tutorials.</p>
+            </div>
+            <a href="courses" class="courses-link" id="view-courses-btn">View All Courses</a>
         </section>
+
     </main>
 
     <footer>
-        <p>&copy; Abhishek.Veeramalla</p>
+        <p>&copy; Abhishek.Veeramalla &mdash; All rights reserved.</p>
     </footer>
+
 </body>
 </html>
