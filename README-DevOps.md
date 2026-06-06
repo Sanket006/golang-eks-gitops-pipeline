@@ -106,7 +106,7 @@ We use **Argo CD** to implement CD using a **GitOps** approach. Argo CD is a dec
 | Container Registry | Docker Hub |
 | CI Pipeline | GitHub Actions |
 | CD / GitOps | Argo CD |
-| Kubernetes | Amazon EKS (with Fargate) |
+| Kubernetes | Amazon EKS (Managed Node Groups) |
 | Package Manager | Helm |
 | Ingress | NGINX Ingress Controller |
 
