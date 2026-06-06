@@ -207,5 +207,3 @@ Follow these guides in order to set up the complete infrastructure from scratch:
 ## 📄 License
 
 This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for full details.
-
-In summary: you are free to use, modify, and distribute this project — even commercially — as long as you retain the license notice and do not misuse the project's trademarks.
