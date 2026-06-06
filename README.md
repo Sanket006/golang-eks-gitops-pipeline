@@ -1,4 +1,4 @@
-# Go Web Application
+# Golang EKS GitOps Pipeline
 
 > A lightweight, production-ready web application written in **Go (Golang)** — containerized with Docker, deployed on **Amazon EKS**, and delivered via a fully automated **CI/CD pipeline** using GitHub Actions and Argo CD.
 
@@ -132,7 +132,7 @@ code-quality (runs in parallel with build)
 ## 📁 Project Structure
 
 ```
-go-web-app-devops/
+golang-eks-gitops-pipeline/
 │
 ├── main.go                    # Application entry point — HTTP server with 4 routes
 ├── main_test.go               # Unit tests
