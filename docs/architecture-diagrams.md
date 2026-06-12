@@ -2,6 +2,11 @@
 
 This document contains simple and clear architecture diagrams for the **Golang EKS GitOps Pipeline** project.
 
+> ✏️ **Edit These Diagrams**: You can edit these diagrams directly using **[Draw.io](https://app.diagrams.net)** by opening the respective `.drawio` files in the `docs/` folder:
+> - ☁️ [AWS Architecture Source File (aws-architecture.drawio)](aws-architecture.drawio)
+> - ⚙️ [CI/CD Workflow Source File (cicd-workflow.drawio)](cicd-workflow.drawio)
+> - ☸️ [Kubernetes Architecture Source File (k8s-architecture.drawio)](k8s-architecture.drawio)
+
 ---
 
 ## ☁️ 1. AWS Architecture Diagram
