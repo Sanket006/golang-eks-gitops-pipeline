@@ -10,6 +10,8 @@ The diagram below illustrates the end-to-end DevOps pipeline — from code commi
 
 ![Pipeline Architecture](https://github.com/user-attachments/assets/45f4ef12-c5b5-4247-9d43-356b5dfb671b)
 
+> 🔍 **Detailed Architecture Diagrams**: For individual sub-system diagrams (AWS Cloud, GitOps CI/CD Workflow, and EKS Kubernetes Namespace Topology), please refer to the dedicated [Architecture Diagrams](docs/architecture-diagrams.md) documentation guide.
+
 ---
 
 ## 🐳 Containerization with Docker

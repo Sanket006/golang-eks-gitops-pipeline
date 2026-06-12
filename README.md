@@ -201,6 +201,7 @@ Follow these guides in order to set up the complete infrastructure from scratch:
 | 2 | EKS Cluster Setup | [eks/install-eks-cluster.md](eks/install-eks-cluster.md) |
 | 3 | NGINX Ingress Controller | [ingress-controller/nginx/install-nginx-ingress-controller.md](ingress-controller/nginx/install-nginx-ingress-controller.md) |
 | 4 | Argo CD Installation | [gitops/argocd/install-argocd.md](gitops/argocd/install-argocd.md) |
+| 5 | Architecture Diagrams | [docs/architecture-diagrams.md](docs/architecture-diagrams.md) |
 
 ---
 
