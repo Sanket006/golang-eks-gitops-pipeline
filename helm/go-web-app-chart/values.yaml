@@ -6,4 +6,4 @@ image:
   repository: sanket006/go-web-app
   pullPolicy: IfNotPresent
   # Auto-updated by GitHub Actions (update-newtag-in-helm-chart job)
-  tag: "27405008708"
+  tag: "27408635955"
