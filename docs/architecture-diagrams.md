@@ -14,10 +14,10 @@ The following diagram illustrates how external client traffic enters the AWS Clo
 ```mermaid
 graph TD
     %% Styling definitions
-    classDef client fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px;
-    classDef aws fill:#ffe0b2,stroke:#fb8c00,stroke-width:2px;
-    classDef k8s fill:#e8f5e9,stroke:#43a047,stroke-width:2px;
-    classDef component fill:#ffffff,stroke:#757575,stroke-width:1px;
+    classDef client fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px
+    classDef aws fill:#ffe0b2,stroke:#fb8c00,stroke-width:2px
+    classDef k8s fill:#e8f5e9,stroke:#43a047,stroke-width:2px
+    classDef component fill:#ffffff,stroke:#757575,stroke-width:1px
 
     Client["Client (Browser)"]:::client
     
@@ -30,6 +30,9 @@ graph TD
             AppPods["Go Web App Pods"]:::k8s
         end
     end
+
+    style AWS fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+    style EKS fill:#e8f5e9,stroke:#43a047,stroke-width:2px
 
     Client -- "Request: go-web-app.local" --> NLB
     NLB -- "Forward Traffic" --> IngressCtrl
@@ -54,12 +57,12 @@ The following diagram shows the end-to-end continuous integration and deployment
 ```mermaid
 graph LR
     %% Styling definitions
-    classDef actor fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px;
-    classDef git fill:#ffebee,stroke:#e53935,stroke-width:2px;
-    classDef ci fill:#e8f5e9,stroke:#43a047,stroke-width:2px;
-    classDef registry fill:#e0f7fa,stroke:#00acc1,stroke-width:2px;
-    classDef cd fill:#fff3e0,stroke:#fb8c00,stroke-width:2px;
-    classDef cluster fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px;
+    classDef actor fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px
+    classDef git fill:#ffebee,stroke:#e53935,stroke-width:2px
+    classDef ci fill:#e8f5e9,stroke:#43a047,stroke-width:2px
+    classDef registry fill:#e0f7fa,stroke:#00acc1,stroke-width:2px
+    classDef cd fill:#fff3e0,stroke:#fb8c00,stroke-width:2px
+    classDef cluster fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px
 
     Dev["Developer"]:::actor
     GitHub["GitHub Code Repo"]:::git
@@ -75,6 +78,8 @@ graph LR
     HelmConfig["GitHub Helm Repo"]:::git
     ArgoCD["Argo CD (GitOps)"]:::cd
     EKS["Amazon EKS Cluster"]:::cluster
+
+    style GHA fill:#f1f8e9,stroke:#7cb342,stroke-width:2px
 
     Dev -- "Push code to main" --> GitHub
     GitHub -- "Trigger Workflow" --> GHA
@@ -112,30 +117,35 @@ The following diagram illustrates the deployment topology inside the Amazon EKS 
 ```mermaid
 graph TD
     %% Styling definitions
-    classDef ns fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
-    classDef svc fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
-    classDef pod fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
-    classDef ing fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef svc fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    classDef pod fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef ing fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
 
     subgraph Cluster["Amazon EKS Cluster (demo-cluster)"]
         
-        subgraph NS_Ingress["Namespace: ingress-nginx"]:::ns
+        subgraph NS_Ingress["Namespace: ingress-nginx"]
             IngressSvc["NGINX Ingress Service (NLB)"]:::svc
             IngressPod["NGINX Ingress Pods"]:::pod
         end
 
-        subgraph NS_App["Namespace: default"]:::ns
+        subgraph NS_App["Namespace: default"]
             AppIngress["Go Web App Ingress"]:::ing
             AppSvc["Go Web App Service"]:::svc
             AppPod["Go Web App Pod"]:::pod
         end
 
-        subgraph NS_ArgoCD["Namespace: argocd"]:::ns
+        subgraph NS_ArgoCD["Namespace: argocd"]
             ArgoSvc["Argo CD Server Service (LB)"]:::svc
             ArgoServer["Argo CD Server Pod"]:::pod
         end
 
     end
+
+    %% Apply compatible styling to subgraphs
+    style Cluster fill:#fafafa,stroke:#9e9e9e,stroke-width:2px
+    style NS_Ingress fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style NS_App fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style NS_ArgoCD fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
 
     IngressSvc --> IngressPod
     IngressPod -- "Inspect Host Header" --> AppIngress
