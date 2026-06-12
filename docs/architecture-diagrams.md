@@ -1,4 +1,8 @@
-# 📐 Go Web App DevOps Architecture Diagrams
+# Architecture Diagrams
+
+> **Navigation:** [Documentation Hub](index.md) | [← Project Overview](01-project-overview.md) | [Full Deployment Walkthrough →](10-full-deployment-walkthrough.md)
+
+---
 
 This document contains detailed, simple, and clear architecture diagrams for the Go Web Application DevOps Pipeline. It covers the AWS Cloud infrastructure, the CI/CD workflow (GitHub Actions & Argo CD), and the internal Kubernetes cluster topology and routing.
 
@@ -188,3 +192,7 @@ flowchart TD
 4. **Service Dispatching**: Once the rule matches, the controller forwards the request to the **🕸️ Go Web App Service** (ClusterIP) on port 80.
 5. **App Pod Load Balancing**: The Service load balances traffic internally to the active **🐳 Go Web App Pod** (running the containerized Go application on port 8080).
 6. **GitOps CD Sync**: Concurrently, the **☸️ Argo CD Controller** running in the `argocd` namespace monitors the git repositories, ensuring that any drift between the Git branch and the running Kubernetes resources is immediately rectified.
+
+---
+
+*[Documentation Hub](index.md) | [← Project Overview](01-project-overview.md) | [Full Deployment Walkthrough →](10-full-deployment-walkthrough.md)*
